@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    RNS_CPT_Team_Member
- * @subpackage RNS_CPT_Team_Member/includes
+ * @package    RNS_CPT_Contact
+ * @subpackage RNS_CPT_Contact/includes
  */
 
 /**
@@ -17,10 +17,10 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    RNS_CPT_Team_Member
- * @subpackage RNS_CPT_Team_Member/includes
+ * @package    RNS_CPT_Contact
+ * @subpackage RNS_CPT_Contact/includes
  */
-class RNS_CPT_Team_Member_Loader {
+class RNS_CPT_Contact_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

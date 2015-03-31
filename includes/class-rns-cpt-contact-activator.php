@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    RNS_CPT_Team_Member
- * @subpackage RNS_CPT_Team_Member/includes
+ * @package    RNS_CPT_Contact
+ * @subpackage RNS_CPT_Contact/includes
  */
 
 /**
@@ -16,10 +16,10 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    RNS_CPT_Team_Member
- * @subpackage RNS_CPT_Team_Member/includes
+ * @package    RNS_CPT_Contact
+ * @subpackage RNS_CPT_Contact/includes
  */
-class RNS_CPT_Team_Member_Activator {
+class RNS_CPT_Contact_Activator {
 
 	/**
 	 * Short Description. (use period)

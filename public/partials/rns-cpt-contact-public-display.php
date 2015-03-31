@@ -8,8 +8,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    RNS_CPT_Team_Member
- * @subpackage RNS_CPT_Team_Member/public/partials
+ * @package    RNS_CPT_Contact
+ * @subpackage RNS_CPT_Contact/public/partials
  */
 ?>
 

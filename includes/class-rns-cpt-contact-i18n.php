@@ -9,8 +9,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    RNS_CPT_Team_Member
- * @subpackage RNS_CPT_Team_Member/includes
+ * @package    RNS_CPT_Contact
+ * @subpackage RNS_CPT_Contact/includes
  */
 
 /**
@@ -20,10 +20,10 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    RNS_CPT_Team_Member
- * @subpackage RNS_CPT_Team_Member/includes
+ * @package    RNS_CPT_Contact
+ * @subpackage RNS_CPT_Contact/includes
  */
-class RNS_CPT_Team_Member_i18n {
+class RNS_CPT_Contact_i18n {
 
 	/**
 	 * The domain specified for this plugin.

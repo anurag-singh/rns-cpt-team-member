@@ -9,8 +9,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    RNS_CPT_Team_Member
- * @subpackage RNS_CPT_Team_Member/includes
+ * @package    RNS_CPT_Contact
+ * @subpackage RNS_CPT_Contact/includes
  */
 
 /**
@@ -23,10 +23,10 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    RNS_CPT_Team_Member
- * @subpackage RNS_CPT_Team_Member/includes
+ * @package    RNS_CPT_Contact
+ * @subpackage RNS_CPT_Contact/includes
  */
-class RNS_CPT_Team_Member {
+class RNS_CPT_Contact {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -34,7 +34,7 @@ class RNS_CPT_Team_Member {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      RNS_CPT_Team_Member_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      RNS_CPT_Contact_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -43,9 +43,9 @@ class RNS_CPT_Team_Member {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $rns_cpt_team_member    The string used to uniquely identify this plugin.
+	 * @var      string    $rns_cpt_contact    The string used to uniquely identify this plugin.
 	 */
-	protected $rns_cpt_team_member;
+	protected $rns_cpt_contact;
 
 	/**
 	 * The current version of the plugin.
@@ -67,7 +67,7 @@ class RNS_CPT_Team_Member {
 	 */
 	public function __construct() {
 
-		$this->rns_cpt_team_member = 'rns-cpt-team-member';
+		$this->rns_cpt_contact = 'rns-cpt-contact';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
@@ -82,10 +82,10 @@ class RNS_CPT_Team_Member {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - RNS_CPT_Team_Member_Loader. Orchestrates the hooks of the plugin.
-	 * - RNS_CPT_Team_Member_i18n. Defines internationalization functionality.
-	 * - RNS_CPT_Team_Member_Admin. Defines all hooks for the admin area.
-	 * - RNS_CPT_Team_Member_Public. Defines all hooks for the public side of the site.
+	 * - RNS_CPT_Contact_Loader. Orchestrates the hooks of the plugin.
+	 * - RNS_CPT_Contact_i18n. Defines internationalization functionality.
+	 * - RNS_CPT_Contact_Admin. Defines all hooks for the admin area.
+	 * - RNS_CPT_Contact_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -99,33 +99,33 @@ class RNS_CPT_Team_Member {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rns-cpt-team-member-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rns-cpt-contact-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rns-cpt-team-member-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rns-cpt-contact-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-rns-cpt-team-member-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-rns-cpt-contact-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-rns-cpt-team-member-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-rns-cpt-contact-public.php';
 
-		$this->loader = new RNS_CPT_Team_Member_Loader();
+		$this->loader = new RNS_CPT_Contact_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the RNS_CPT_Team_Member_i18n class in order to set the domain and to register the hook
+	 * Uses the RNS_CPT_Contact_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -133,8 +133,8 @@ class RNS_CPT_Team_Member {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new RNS_CPT_Team_Member_i18n();
-		$plugin_i18n->set_domain( $this->get_rns_cpt_team_member() );
+		$plugin_i18n = new RNS_CPT_Contact_i18n();
+		$plugin_i18n->set_domain( $this->get_rns_cpt_contact() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -149,16 +149,16 @@ class RNS_CPT_Team_Member {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new RNS_CPT_Team_Member_Admin( $this->get_rns_cpt_team_member(), $this->get_version() );
+		$plugin_admin = new RNS_CPT_Contact_Admin( $this->get_rns_cpt_contact(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
-		$this->loader->add_action( 'init', $plugin_admin, 'create_rns_cpt_team_member' );
+		$this->loader->add_action( 'init', $plugin_admin, 'create_rns_cpt_contact' );
 		$this->loader->add_action( 'init', $plugin_admin, 'my_remove_post_type_support', 10 );
 
-		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'create_meta_box_for_rns_cpt_team_member' );
-		$this->loader->add_action( 'save_post', $plugin_admin, 'save_metabox_data_for_rns_cpt_team_member' );
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'create_meta_box_for_rns_cpt_contact' );
+		$this->loader->add_action( 'save_post', $plugin_admin, 'save_metabox_data_for_rns_cpt_contact' );
 
 
 
@@ -175,7 +175,7 @@ class RNS_CPT_Team_Member {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new RNS_CPT_Team_Member_Public( $this->get_rns_cpt_team_member(), $this->get_version() );
+		$plugin_public = new RNS_CPT_Contact_Public( $this->get_rns_cpt_contact(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -198,15 +198,15 @@ class RNS_CPT_Team_Member {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_rns_cpt_team_member() {
-		return $this->rns_cpt_team_member;
+	public function get_rns_cpt_contact() {
+		return $this->rns_cpt_contact;
 	}
 
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    RNS_CPT_Team_Member_Loader    Orchestrates the hooks of the plugin.
+	 * @return    RNS_CPT_Contact_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;
